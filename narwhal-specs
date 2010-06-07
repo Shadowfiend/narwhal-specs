@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+narwhal=`which narwhal-webkit-debug`
+if [[ -z $narwhal ]]
+then
+  narwhal=../narwhal/engines/jsc/bin/narwhal-webkit-debug
+fi
+
+$narwhal narwhal-specs.js $@
