@@ -6,8 +6,15 @@ window.printObject = function(obj) {
   for (var item in obj) print(item + ": " + obj[item]);
 }
 
-function requireHere(scriptName) {
+window.requireHere = function(scriptName) {
   require(system.fs.cwd() + '/' + scriptName);
+}
+
+var browsersSoFar = 0;
+window.createBrowser = function(browserName) {
+  browserName = browserName || ("browser" + browsersSoFar++);
+
+  return browserManager.createBrowserNamed(browserName);
 }
 
 requireHere('jquery-1.4.2.js');
